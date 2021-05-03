@@ -6,14 +6,14 @@
     <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
       <ul class="navbar-nav mr-auto d-flex align-items-center">
         <li class="nav-item active">
-          <img src="https://scontent.fcgh18-1.fna.fbcdn.net/v/t1.6435-9/126396253_3493237807422489_2538447943345848058_n.jpg?_nc_cat=102&ccb=1-3&_nc_sid=09cbfe&_nc_eui2=AeHXRrTMi9m-w-FH_OH13rsIeMbGNfaVrCh4xsY19pWsKKb7gbDE7cSDqLcFb1dDZNUkXvBGcssKJf9WKVRHw1XC&_nc_ohc=lucNjBewYcUAX-7igC3&_nc_ht=scontent.fcgh18-1.fna&oh=6629d549634b81fab35a01cfd968dfb9&oe=60AF0C1D" 
+          <img src="{{foto}}" 
           alt="imagem do User" 
           width="50px"
            height="50px" 
            class="img-fluid rounded-circle">
         </li>
         <li class="nav-item p-3">
-          <p class="m-0 font-weight-bold text-white fs-16">Nome do Usuario</p>
+          <p class="m-0 font-weight-bold text-white fs-16">Olá, {{nome}}</p>
         </li>
         <li>
             <a href="">
@@ -25,7 +25,7 @@
       </ul>
       <ul class="navbar-nav ml-auto d-flex align-items-center">
         <li class="nav-item pl-3">
-            <a class="m-0 font-weight-bold text-white fs-16">Sair <i class="fas fa-sign-out-alt"></i></a>
+            <a (click)='sair()' class="m-0 font-weight-bold text-white fs-16">Sair <i class="fas fa-sign-out-alt"></i></a>
         </li>
     </ul>
     </div>
