@@ -22,6 +22,8 @@ export class InicioComponent implements OnInit {
 
   user:User = new User()
   idUser= environment.id
+  key='data'
+  reverse= true
 
 
   listaTema: Tema[]
