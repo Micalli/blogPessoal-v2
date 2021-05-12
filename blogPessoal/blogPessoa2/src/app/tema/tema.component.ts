@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment.prod';
 import { Tema } from '../model/Tema';
+import { AlertasService } from '../service/alertas.service';
 import { TemaService } from '../service/tema.service';
 
 @Component({
@@ -16,7 +17,8 @@ export class TemaComponent implements OnInit {
   
   constructor(
     private router: Router,
-    private temaService: TemaService
+    private temaService: TemaService,
+    private alerta: AlertasService
   ) { }
 
   ngOnInit() {
@@ -24,8 +26,15 @@ export class TemaComponent implements OnInit {
   if(environment.token == ''){
      
     this.router.navigate(['/entrar'])
+
+    
   }
   this.findAllTemas()//atualiza a lista de temas em todo refresh
+
+  if(environment.tipo != 'adm'){
+    this.alerta.showAlertInfo('Você precisa ser administrador! para acessar sua rota')
+    this.router.navigate(['/inicio'])
+  }
   }
   findAllTemas(){
     this.temaService.getAllTema().subscribe((resp:Tema[])=>{
