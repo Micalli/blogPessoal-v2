@@ -17,6 +17,8 @@ import { TemaService } from '../service/tema.service';
 export class InicioComponent implements OnInit {
   postagem : Postagem = new Postagem()
   listaPostagens: Postagem[]
+  tituloPost:string
+  nomeTema:string
 
   tema  : Tema = new Tema()
 
@@ -91,6 +93,28 @@ publicar(){
 
 
 }
+findByTituloPostagem(){
+
+  if(this.tituloPost == ''){
+    this.getAllPostagens()
+  }else{
+    this.postagemService.getByTituloPostagem(this.tituloPost).subscribe((resp: Postagem[])=>{
+      this.listaPostagens=resp
+    })
+  }
+ 
+}
+
+findByNomeTema(){
+  if(this.tituloPost == ''){
+    this.getAllPostagens()
+  }else{
+this.temaService.getByNomeTema(this.nomeTema).subscribe((resp: Tema[])=>{
+this.listaTema=resp
+})
+
+  } 
+ }
 
 
 }
